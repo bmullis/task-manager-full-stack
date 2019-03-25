@@ -1,0 +1,27 @@
+{
+  "name": "tasks-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.3.16",
+    "node-cron": "^2.0.3",
+    "nodemailer": "^5.1.1",
+    "validator": "^10.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

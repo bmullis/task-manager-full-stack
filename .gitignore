@@ -1,0 +1,28 @@
+# server files
+node_modules
+playground
+package-lock.json
+
+# client files
+**/node_modules
+**/yarn.lock
+
+# client testing
+**/coverage
+
+# client production
+**/build
+
+# client misc
+**/.DS_Store
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
+**/.pnp
+**/.pnp.js
