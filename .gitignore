@@ -5,14 +5,12 @@ config
 package-lock.json
 
 # client files
-**/node_modules
-**/yarn.lock
+client/node_modules
+client/yarn.lock
+client/src
 
 # client testing
 **/coverage
-
-# client production
-**/build
 
 # client misc
 **/.DS_Store
