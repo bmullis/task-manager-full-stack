@@ -1,7 +1,7 @@
 const express = require('express')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
-const transporter = require('../config/mailer')
+const transporter = require('../helpers/mailer')
 const router = new express.Router()
 
 router.post('/user', async (req, res) => {

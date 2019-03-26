@@ -1,15 +1,15 @@
 const express = require('express')
 const cron = require('node-cron')
-const transporter = require('./config/mailer')
+const transporter = require('./helpers/mailer')
 const cors = require('cors')
 const path = require('path')
 require('./db/mongoose')
-const userRouter = require('./routers/user')
-const taskRouter = require('./routers/task')
+const userRouter = require('./routes/user')
+const taskRouter = require('./routes/task')
 const User = require('./models/user')
 
 const app = express()
-const port = process.env.PORT || 8080
+const port = process.env.PORT
 
 app.use(express.json())
 app.use(cors());
