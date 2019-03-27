@@ -6,8 +6,6 @@ import UserLoginForm from './UserLoginForm'
 const UserLogin = (props) => {
 
   const handleUserLogin = (email, password) => {
-    console.log('email: ' + email + ', password: ' + password)
-
     axios.post('/user/login', {
       email,
       password
@@ -21,8 +19,10 @@ const UserLogin = (props) => {
 
   return (
     <div>
-      <h3>Login</h3>
-      <UserLoginForm handleUserLogin={handleUserLogin} />
+      <div className="user-form">
+        <h3>Login</h3>
+        <UserLoginForm handleUserLogin={handleUserLogin} />
+      </div>
     </div>
   )
 }

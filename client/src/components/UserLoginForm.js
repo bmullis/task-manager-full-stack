@@ -9,8 +9,8 @@ const UserLoginForm = ({ handleUserLogin }) => {
 
   return (
     <form onSubmit={(event) => handleFormSubmit(event)}>
-      <input type="text" name="email" />
-      <input type="password" name="password" />
+      <input type="text" name="email" placeholder="Email Address" />
+      <input type="password" name="password" placeholder="Password" />
       <button type="submit">Login</button>
     </form>
   )
