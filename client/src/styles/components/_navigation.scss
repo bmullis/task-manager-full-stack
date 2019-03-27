@@ -1,0 +1,22 @@
+nav {
+  background: $color-aqua-100;
+  padding: 1rem;
+}
+nav div.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li {
+  display: inline;
+}
+nav ul li a {
+  color: white;
+  padding: 0 1rem;
+  text-decoration: none;
+}

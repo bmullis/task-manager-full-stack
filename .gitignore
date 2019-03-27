@@ -7,7 +7,6 @@ package-lock.json
 # client files
 client/node_modules
 client/yarn.lock
-client/src
 
 # client testing
 **/coverage
