@@ -1,0 +1,43 @@
+.task-list {
+  margin-top: 1rem;
+}
+
+.task-list__header {
+  background: $color-gray-500;
+  color: white;
+}
+.task-list__header div {
+  font-weight: bold;
+}
+
+.task-list__item, .task-list__header {
+  align-items: center;
+  display: flex;
+  height: 3.2rem;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.task-list__item div:first-of-type, .task-list__header div:first-of-type {
+  text-align: left;
+  width: 50%;
+}
+.task-list__item div:nth-of-type(2), .task-list__header div:nth-of-type(2) {
+  text-align: right;
+  width: 25%;
+}
+.task-list__item div:nth-of-type(3), .task-list__header div:nth-of-type(3) {
+  text-align: right;
+  width: 25%;
+}
+
+.task-list__item:nth-of-type(odd) {
+  background: $color-gray-100;
+}
+
+.task-list__item button {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  width: auto;
+}

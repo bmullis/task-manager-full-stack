@@ -1,6 +1,11 @@
 @import './variables';
 @import './globals';
 
+@import './components/alerts';
 @import './components/buttons';
 @import './components/navigation';
+@import './components/tasks-list';
 @import './components/user-forms';
+
+@import './pages/dashboard';
+@import './pages/welcome';

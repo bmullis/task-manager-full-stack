@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom'
 
 const Welcome = () => {
   return (
-    <div>
+    <div className="welcome">
       <h1>Welcome to TaskApp!</h1>
       <h4>Manage your todo list and get more things done</h4>
-      <Link to="/login">Login</Link>
-      <Link to="/register">Register</Link>
+      <Link to="/login" className="btn btn-link">Get Started</Link>
     </div>
   )
 }

@@ -2,8 +2,26 @@ button {
   background: $color-purple-100;
   border: none;
   color: white;
+  cursor: pointer;
   display: block;
   font-size: 1.2rem;
   padding: 0.8rem 1rem;
+  transition: all .2s;
   width: 100%;
+}
+
+.btn {
+  background: $color-purple-100;
+  border: none;
+  border-radius: 200px;
+  color: white;
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 1.2rem 3rem;
+  text-decoration: none;
+  transition: all .2s;
+}
+
+button:hover, .btn:hover {
+  background: $color-purple-200;
 }
