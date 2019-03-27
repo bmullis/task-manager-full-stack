@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-const UserLoginForm = (props) => {
+const UserLoginForm = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault()
 
@@ -11,7 +11,6 @@ const UserLoginForm = (props) => {
       password: event.target.password.value
     }).then((res) => {
       localStorage.setItem('token', res.data.token)
-      props.history.push('/dashboard')
     }).catch((err) => {
       console.log(err)
     })
