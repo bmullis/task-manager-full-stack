@@ -5,7 +5,7 @@ const Navigation = () => {
   return (
     <nav>
       <div className="container">
-        <Link to="/"><h4>NavApp</h4></Link>
+        <Link to="/"><h4>TaskApp</h4></Link>
 
         <ul>
           <li>
@@ -20,7 +20,6 @@ const Navigation = () => {
         </ul>
       </div>
     </nav>
-    
   )
 }
 
