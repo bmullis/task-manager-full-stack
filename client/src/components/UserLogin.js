@@ -8,11 +8,7 @@ import UserLoginForm from './UserLoginForm'
 
 const UserLogin = (props) => {
   const [error, setError] = useState('')
-  const {token, setToken} = useContext(AuthContext)
-  
-  if (token) {
-    props.history.push('/dashboard')
-  }
+  const {setAuth} = useContext(AuthContext)
 
   const handleUserLogin = async (email, password) => {
     if (!email || !password) {
@@ -27,8 +23,11 @@ const UserLogin = (props) => {
         password
       })
 
-      setToken(response.data.token)
-      localStorage.setItem('token', response.data.token)
+      setAuth({
+        authed: true,
+        token: response.data.token
+      })
+  
       props.history.push('/dashboard')
     } catch (err) {
       setError('Something went wrong, please try again')

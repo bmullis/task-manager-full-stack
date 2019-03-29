@@ -10,18 +10,16 @@ import UserRegister from './UserRegister'
 import Dashboard from './Dashboard'
 
 const App = () => {
-  const { token } = useContext(AuthContext)
-  
-  console.log(token ? 'Yes: ' + token : 'No: ' + token)
+  const { auth } = useContext(AuthContext)
 
   return (
     <Router>
       <Navigation />
       <div className="container">
         <Route exact path="/" render={(props) => ( <Welcome {...props} /> )} />
-        <Route path="/login" render={(props) => ( token ? <Redirect to="/dashboard" /> : <UserLogin {...props} /> )} />
-        <Route path="/register" render={(props) => ( <UserRegister {...props} /> )} />
-        <Route path="/dashboard" render={(props) => ( token ? <Dashboard {...props} /> : <Redirect to="/login" /> )} />
+        <Route path="/login" render={(props) => ( auth.authed ? <Redirect to="/dashboard" /> : <UserLogin {...props} /> )} />
+        <Route path="/register" render={(props) => ( auth.authed ? <Redirect to="/dashboard" /> : <UserRegister {...props} /> )} />
+        <Route path="/dashboard" render={(props) => ( auth.authed ? <Dashboard {...props} /> : <Redirect to="/login" /> )} />
       </div>
     </Router>
   )
