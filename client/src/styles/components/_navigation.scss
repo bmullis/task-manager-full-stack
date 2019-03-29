@@ -15,8 +15,9 @@ nav a {
 nav ul li {
   display: inline;
 }
-nav ul li a {
+nav ul li a, nav ul li span {
   color: white;
+  cursor: pointer;
   padding: 0 1rem;
   text-decoration: none;
 }

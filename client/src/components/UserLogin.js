@@ -1,28 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+
+import { AuthContext } from '../helpers/AuthContext'
 
 import UserLoginForm from './UserLoginForm'
 
 const UserLogin = (props) => {
   const [error, setError] = useState('')
+  const {token, setToken} = useContext(AuthContext)
+  
+  if (token) {
+    props.history.push('/dashboard')
+  }
 
-  const handleUserLogin = (email, password) => {
+  const handleUserLogin = async (email, password) => {
     if (!email || !password) {
       return setError('Please enter an email and a password')
     } else {
       setError('')
     }
 
-    axios.post('/user/login', {
-      email,
-      password
-    }).then((res) => {
-      localStorage.setItem('token', res.data.token)
+    try {
+      const response = await axios.post('/user/login', {
+        email,
+        password
+      })
+
+      setToken(response.data.token)
+      localStorage.setItem('token', response.data.token)
       props.history.push('/dashboard')
-    }).catch((err) => {
+    } catch (err) {
       setError('Something went wrong, please try again')
-    })
+    }
   }
 
   return (
