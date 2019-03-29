@@ -4,14 +4,16 @@ import { NavLink as Link } from 'react-router-dom'
 import { AuthContext } from '../helpers/AuthContext'
 
 const Navigation = () => {
-  const { token, setToken } = useContext(AuthContext)
+  const { auth, setAuth } = useContext(AuthContext)
 
   const handleUserSignOut = () => {
-    localStorage.removeItem('token')
-    setToken(false)
+    setAuth({
+      authed: false,
+      token: ''
+    })
   }
 
-  if (!token) {
+  if (!auth.authed) {
     return (
       <nav>
         <div className="container">
