@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { AuthContext } from '../helpers/AuthContext'
 
 import fetchResources from '../helpers/fetchResources'
 import TasksList from './TasksList';
 
-const Dashboard = () => {
-  const token = localStorage.getItem('token')
+const Dashboard = (props) => {
+  const {token} = useContext(AuthContext)
+  
   const user = fetchResources('user', token)
   const tasks = fetchResources('tasks', token)
 

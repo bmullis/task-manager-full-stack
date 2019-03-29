@@ -11,7 +11,7 @@ const TasksList = ({ tasks }) => {
       </div>
       {tasks.map((task) => {
         return (
-          <div className="task-list__item">
+          <div className="task-list__item" key={task._id}>
             <div>{task.description}</div>
             <div>{task.due_at ? moment(task.due_at).format('MMMM Do YYYY') : <button>Set Due Date</button>}</div>
             <div>{task.completed_at ? moment(task.completed_at).format('MMMM Do YYYY') : '-'}</div>
