@@ -1,5 +1,6 @@
 const express = require('express')
 const User = require('../models/user')
+const Notification = require('../models/notification')
 const auth = require('../middleware/auth')
 const transporter = require('../helpers/mailer')
 const router = new express.Router()
@@ -22,6 +23,13 @@ router.post('/user', async (req, res) => {
     transporter.sendMail(mailOptions, (error, info) => {
       error ? console.log(error) : console.log('Email sent: ' + info.response)
     });
+
+    const notification = new Notification({
+      title: 'Welcome to TaskApp',
+      message: 'Get started by adding tasks and then setting due dates for your tasks.',
+      to_user: user._id
+    })
+    notification.save()
   } catch (err) {
     res.status(400).send(err)
   }

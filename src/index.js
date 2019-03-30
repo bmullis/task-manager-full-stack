@@ -6,6 +6,7 @@ const path = require('path')
 require('./db/mongoose')
 const userRouter = require('./routes/user')
 const taskRouter = require('./routes/task')
+const notificationRouter = require('./routes/notification')
 const User = require('./models/user')
 
 const app = express()
@@ -15,6 +16,7 @@ app.use(express.json())
 app.use(cors());
 app.use(userRouter)
 app.use(taskRouter)
+app.use(notificationRouter)
 app.use(express.static(path.join(__dirname, '..', 'client', 'build')))
 
 // cron.schedule('* * * * *', () => {
