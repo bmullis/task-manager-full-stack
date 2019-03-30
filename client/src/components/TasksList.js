@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import TaskItem from './TaskItem';
 
+import { sort } from '../helpers/sortTasks'
+
 const TasksList = ({ tasks }) => {
-  const renderTasks = (tasks) => {
-    if (tasks.length > 0) {
+  const [sortBy, setSortBy] = useState('due_at')
+  const [sortOrder, setSortOrder] = useState('asc')
+
+  const sortedTasks = sort(tasks, sortBy, sortOrder)
+
+  const setNewSort = (newSortBy) => {
+    setSortBy(newSortBy)
+
+    if (sortOrder === 'asc') {
+      setSortOrder('desc')
+    } else {
+      setSortOrder('asc')
+    }
+  }
+
+  const renderTasks = (sortedTasks) => {
+    if (sortedTasks.length > 0) {
       return (
-        tasks.map((task) => {
+        sortedTasks.map((task) => {
           return (
             <TaskItem key={task._id} task={task} />
           )
@@ -23,11 +40,15 @@ const TasksList = ({ tasks }) => {
   return (
     <div className="task-list">
       <div className="task-list__header">
-        <div>Description</div>
-        <div>Due Date</div>
+        <div onClick={() => setNewSort('description')}>
+          Description <span role="img">↕</span>
+        </div>
+        <div onClick={() => setNewSort('due_at')}>
+          Due Date <span role="img">↕</span>️
+        </div>
         <div>Completed Date</div>
       </div>
-      {renderTasks(tasks)}
+      {renderTasks(sortedTasks)}
     </div>
   )
 }

@@ -37,7 +37,7 @@ const UserRegister = (props) => {
         <h3>Register</h3>
         <UserRegisterForm handleUserRegistration={handleUserRegistration} />
         {error && <p className="alert-box alert-box__red">{error}</p>}
-        <p>Already have an account yet? Sign in <Link to="/login">here</Link>.</p>
+        <p>Already have an account? Sign in <Link to="/login">here</Link>.</p>
       </div>
     </div>
   )
