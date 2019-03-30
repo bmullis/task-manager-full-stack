@@ -17,6 +17,10 @@ const TaskItem = ({ task }) => {
   }
 
   const handleDayClick = async (day) => {
+    if (day < new Date()) {
+      return
+    }
+    
     try {
       const response = await axios.patch(`/tasks/${task._id}`, { due_at: day }, {
         headers: {
@@ -45,6 +49,7 @@ const TaskItem = ({ task }) => {
               onDayClick={handleDayClick} 
               selectedDays={selectedDay} 
               initialMonth={moment(task.due_at).toDate()}
+              disabledDays={{before: new Date()}}
             />}
           </div>
         ) : (
@@ -56,6 +61,7 @@ const TaskItem = ({ task }) => {
             <DayPicker 
               onDayClick={handleDayClick} 
               selectedDays={selectedDay} 
+              disabledDays={{before: new Date()}}
             />}
           </div>
         )}
