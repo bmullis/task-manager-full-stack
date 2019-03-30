@@ -1,0 +1,15 @@
+.DayPicker {
+  background: white;
+  border: 1px solid $color-gray-100;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.08);
+  right: -50%;
+  position: absolute;
+  top: 2rem;
+  width: 300px;
+  z-index: 1;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  background-color: $color-aqua-100;
+}
