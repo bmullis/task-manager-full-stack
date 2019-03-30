@@ -42,8 +42,8 @@ const TaskItem = ({ task }) => {
       <div>{task.description}</div>
       <div>
         {task.due_at ? (
-          <div>
-            <div onClick={toggleDatePicker}>{moment(task.due_at).format('MMMM Do YYYY')}</div>
+          <div className={moment(task.due_at).toDate() < new Date() ? 'overdue' : ''}>
+            <div onClick={toggleDatePicker}><span>{moment(task.due_at).format('MMMM Do YYYY')}</span></div>
             {pickerIsOpen &&
             <DayPicker 
               onDayClick={handleDayClick} 
