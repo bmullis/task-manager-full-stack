@@ -18,15 +18,17 @@
   padding: 1rem;
 }
 
-.task-list__item div:first-of-type, .task-list__header div:first-of-type {
+.task-list__item > div:first-of-type, .task-list__header div:first-of-type {
   text-align: left;
   width: 50%;
 }
-.task-list__item div:nth-of-type(2), .task-list__header div:nth-of-type(2) {
+.task-list__item > div:nth-of-type(2), .task-list__header div:nth-of-type(2) {
+  cursor: pointer;
+  position: relative;
   text-align: right;
   width: 25%;
 }
-.task-list__item div:nth-of-type(3), .task-list__header div:nth-of-type(3) {
+.task-list__item > div:nth-of-type(3), .task-list__header div:nth-of-type(3) {
   text-align: right;
   width: 25%;
 }

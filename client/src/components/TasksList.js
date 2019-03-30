@@ -1,7 +1,25 @@
 import React from 'react'
-import moment from 'moment'
+
+import TaskItem from './TaskItem';
 
 const TasksList = ({ tasks }) => {
+  const renderTasks = (tasks) => {
+    if (tasks.length > 0) {
+      return (
+        tasks.map((task) => {
+          return (
+            <TaskItem key={task._id} task={task} />
+          )
+        })
+      )
+    } else {
+      return (
+        <div style={{ padding: '2rem 0.75rem'}}>
+          <h5>You don't have any tasks yet. Create one to get started.</h5>
+        </div>
+      )
+    }
+  }
   return (
     <div className="task-list">
       <div className="task-list__header">
@@ -9,15 +27,7 @@ const TasksList = ({ tasks }) => {
         <div>Due Date</div>
         <div>Completed Date</div>
       </div>
-      {tasks.map((task) => {
-        return (
-          <div className="task-list__item" key={task._id}>
-            <div>{task.description}</div>
-            <div>{task.due_at ? moment(task.due_at).format('MMMM Do YYYY') : <button>Set Due Date</button>}</div>
-            <div>{task.completed_at ? moment(task.completed_at).format('MMMM Do YYYY') : '-'}</div>
-          </div>
-        )
-      })}
+      {renderTasks(tasks)}
     </div>
   )
 }
