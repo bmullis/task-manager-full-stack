@@ -14,10 +14,59 @@ nav a {
 
 nav ul li {
   display: inline;
+  position: relative;
 }
 nav ul li a, nav ul li span {
   color: white;
   cursor: pointer;
   padding: 0 1rem;
   text-decoration: none;
+}
+nav ul li .profile-circle {
+  display: inline-block;
+  width: 50px;
+}
+
+nav ul li span.alert-dot {
+  background: $color-red-100;
+  border: 2px solid $color-red-200;
+  border-radius: 200px;
+  display: block;
+  height: 10px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 10px;
+}
+
+nav .notifications-box, nav .user__drop-down {
+  background: white;
+  border: 1px solid $color-gray-100;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.08);
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 30px;
+  width: 250px;
+  z-index: 10;
+  h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  p {
+    font-size: 0.75rem;
+  }
+  .notifications-box__carat {
+    background: white;
+    border: 1px solid $color-gray-100;
+    border-bottom: 0;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    width: 30px;
+  }
 }
