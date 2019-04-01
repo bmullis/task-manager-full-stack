@@ -4,7 +4,7 @@ const User = require('../models/user')
 const Task = require('../models/task')
 const Notification = require('../models/notification')
 
-const checkOverdue = () => cron.schedule('30 6 * * *', () => {
+const checkOverdue = () => cron.schedule('40 6 * * *', () => {
   User.find({}).then((users) => {
     users.forEach(async function(user) {
       const tasks = await Task.find({ created_by: user._id })
