@@ -1,10 +1,9 @@
 const cron = require('node-cron')
-const moment = require('moment')
 const User = require('../models/user')
 const Task = require('../models/task')
 const Notification = require('../models/notification')
 
-const checkOverdue = () => cron.schedule('40 6 * * *', () => {
+const checkOverdue = () => cron.schedule('50 22 * * *', () => {
   User.find({}).then((users) => {
     users.forEach(async function(user) {
       const tasks = await Task.find({ created_by: user._id })
@@ -27,7 +26,8 @@ const checkOverdue = () => cron.schedule('40 6 * * *', () => {
       }
     })
   })
-  console.log('Cron ran for overdue tasks')
+
+  console.log('Ran cron for overdue tasks')
 });
 
 module.exports = checkOverdue
