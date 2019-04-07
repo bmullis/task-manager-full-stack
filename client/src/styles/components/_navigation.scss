@@ -58,15 +58,4 @@ nav .notifications-box, nav .user__drop-down {
   p {
     font-size: 0.75rem;
   }
-  .notifications-box__carat {
-    background: white;
-    border: 1px solid $color-gray-100;
-    border-bottom: 0;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    height: 20px;
-    position: absolute;
-    right: 10px;
-    top: -10px;
-    width: 30px;
-  }
 }
