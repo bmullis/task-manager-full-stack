@@ -16,7 +16,7 @@ router.get('/notifications/:id', auth, async (req, res) => {
   const _id = req.params.id
 
   try {
-    const notification = await Notification.findOne({ _id, created_by: req.user._id })
+    const notification = await Notification.findOne({ _id, to_user: req.user._id })
 
     if (!notification) {
       return res.status(404).send()
@@ -30,7 +30,7 @@ router.get('/notifications/:id', auth, async (req, res) => {
 
 router.patch('/notifications/:id', auth, async (req, res) => {
   const updates = Object.keys(req.body)
-  const allowedUpdates = ['is_read']
+  const allowedUpdates = 'is_read'
   const isValidOperation = updates.every((update) => {
     return allowedUpdates.includes(update)
   })
@@ -40,7 +40,7 @@ router.patch('/notifications/:id', auth, async (req, res) => {
   }
 
   try {
-    const notification = await Notification.findOne({ _id: req.params.id, created_by: req.user._id })
+    const notification = await Notification.findOne({ _id: req.params.id, to_user: req.user._id })
     
     if (!notification) {
       res.status(404).send()
@@ -56,7 +56,7 @@ router.patch('/notifications/:id', auth, async (req, res) => {
 
 router.delete('/notifications/:id', auth, async (req, res) => {
   try {
-    const notification = await Notification.findOneAndDelete({ _id: req.params.id, created_by: req.user._id })
+    const notification = await Notification.findOneAndDelete({ _id: req.params.id, to_user: req.user._id })
 
     if (!notification) {
       res.status(404).send()

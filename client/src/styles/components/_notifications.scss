@@ -1,0 +1,34 @@
+.notifications-box__carat {
+  background: white;
+  border: 1px solid $color-gray-100;
+  border-bottom: 0;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: -10px;
+  width: 30px;
+}
+.notifications-box__notification {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.notifications-box__notification-left {
+  padding-right: 1rem;
+}
+
+.close-notification {
+  border: 1px solid $color-gray-200;
+  border-radius: 100px;
+  cursor: pointer;
+  height: 1.3rem;
+  margin-top: 1rem;
+  text-align: center;
+  width: 1.3rem;
+  &:hover {
+    background: $color-red-100;
+    color: white;
+  }
+}
