@@ -2,8 +2,10 @@ const express = require('express')
 const User = require('../models/user')
 const Notification = require('../models/notification')
 const auth = require('../middleware/auth')
-const transporter = require('../helpers/mailer')
+const sgMail = require('@sendgrid/mail')
+
 const router = new express.Router()
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 router.post('/user', async (req, res) => {
   const user = new User(req.body)
@@ -13,16 +15,13 @@ router.post('/user', async (req, res) => {
     const token = await user.generateAuthToken()
     res.status(201).send({ user, token })
 
-    const mailOptions = {
-      from: 'brian.mullis09@gmail.com',
+    const msg = {
       to: user.email,
+      from: 'taskapp@taskapp.io',
       subject: `Welcome to TaskApp, ${user.firstName}`,
       text: `Welcome, ${user.firstName}! Thank you for signing up.`
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-      error ? console.log(error) : console.log('Email sent: ' + info.response)
-    });
+    }
+    sgMail.send(msg)
 
     const notification = new Notification({
       title: 'Welcome to TaskApp',
